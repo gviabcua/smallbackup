@@ -1,0 +1,33 @@
+{
+    "name": "gviabcua/smallbackup-plugin",
+    "description": "Backup databases and plugins, theme",
+    "homepage": "https://www.webula.cz",
+    "type": "winter-plugin",
+    "authors": [
+        {
+            "name": "Jan Vince",
+            "email": "jan.vince@webula.cz",
+            "homepage": "https://www.webula.cz",
+            "role": "Developer"
+        },
+        {
+            "name": "Rike-cz",
+            "homepage": "https://xis.cz",
+            "role": "Developer"
+        },{
+            "name": "Gviabcua (mod)",
+            "email": "gviabcua@gmail.com",
+            "homepage": "https://gviabcua.in.ua",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "composer/installers": "~1.0"
+    },
+    "autoload" : {
+        "files" : [
+            "helpers/helpers.php"
+        ]
+    }
+}

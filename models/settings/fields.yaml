@@ -1,0 +1,134 @@
+fields:
+    _title:
+        label: gviabcua.smallbackup::lang.plugin.name
+        comment: gviabcua.smallbackup::lang.plugin.description
+        type: section
+
+    backup_folder:
+        label: gviabcua.smallbackup::lang.settings.backup_folder
+        comment: gviabcua.smallbackup::lang.settings.backup_folder_comment
+        placeholder: storage/app/backup
+        default: storage/app/backup
+        span: left
+        type: text
+
+    cleanup_interval:
+        label: gviabcua.smallbackup::lang.settings.cleanup_interval
+        span: right
+        type: number
+        step: 1
+        min: 1
+        max: 120
+        default: 7
+
+tabs:
+    icons:
+        gviabcua.smallbackup::lang.settings.tabs.database: icon-database
+        gviabcua.smallbackup::lang.settings.tabs.theme: icon-picture-o
+        gviabcua.smallbackup::lang.settings.tabs.storage: icon-files-o
+        gviabcua.smallbackup::lang.settings.tabs.settings: icon-cogs
+
+    fields:
+
+        db_auto:
+            label: gviabcua.smallbackup::lang.settings.db_auto
+            comment: gviabcua.smallbackup::lang.settings.db_auto__comment
+            type: switch
+            span: left
+            tab: gviabcua.smallbackup::lang.settings.tabs.database
+
+        db_excluded_tables:
+            label: gviabcua.smallbackup::lang.settings.db_excluded_tables
+            comment: gviabcua.smallbackup::lang.settings.db_excluded_tables__comment
+            span: right
+            type: taglist
+            options: getTablesOptions
+            customTags: false
+            tab: gviabcua.smallbackup::lang.settings.tabs.database
+
+        db_use_compression:
+            label: gviabcua.smallbackup::lang.settings.db_use_compression
+            span: left
+            type: switch
+            tab: gviabcua.smallbackup::lang.settings.tabs.database
+
+        _listing_db:
+            type: partial
+            path: $/gviabcua/smallbackup/controllers/settings/_listing-db.htm
+            tab: gviabcua.smallbackup::lang.settings.tabs.database
+
+        theme_auto:
+            label: gviabcua.smallbackup::lang.settings.theme_auto
+            comment: gviabcua.smallbackup::lang.settings.theme_auto__comment
+            type: switch
+            tab: gviabcua.smallbackup::lang.settings.tabs.theme
+
+        _listing_theme:
+            type: partial
+            path: $/gviabcua/smallbackup/controllers/settings/_listing-theme.htm
+            tab: gviabcua.smallbackup::lang.settings.tabs.theme
+            
+        plugins_auto:
+            label: gviabcua.smallbackup::lang.settings.plugins_auto
+            comment: gviabcua.smallbackup::lang.settings.plugins_auto__comment
+            type: switch
+            tab: gviabcua.smallbackup::lang.settings.tabs.plugins
+
+        _listing_plugins:
+            type: partial
+            path: $/gviabcua/smallbackup/controllers/settings/_listing-plugins.htm
+            tab: gviabcua.smallbackup::lang.settings.tabs.plugins
+            
+        storage_auto:
+            label: gviabcua.smallbackup::lang.settings.storage_auto
+            comment: gviabcua.smallbackup::lang.settings.storage_auto__comment
+            type: switch
+            span: left
+            tab: gviabcua.smallbackup::lang.settings.tabs.storage
+
+        storage_output:
+            label: gviabcua.smallbackup::lang.settings.storage_output
+            comment: gviabcua.smallbackup::lang.settings.storage_output__comment
+            type: radio
+            options:
+                zip: gviabcua.smallbackup::lang.settings.storage_output__zip
+                tar_unsafe: gviabcua.smallbackup::lang.settings.storage_output__tar_unsafe
+                tar: gviabcua.smallbackup::lang.settings.storage_output__tar
+                tar_gz: gviabcua.smallbackup::lang.settings.storage_output__tar_gz
+                tar_bz2: gviabcua.smallbackup::lang.settings.storage_output__tar_bz2
+            default: tar
+            span: right
+            tab: gviabcua.smallbackup::lang.settings.tabs.storage
+
+        storage_excluded_resources:
+            label: gviabcua.smallbackup::lang.settings.storage_excluded_resources
+            span: full
+            type: taglist
+            options: getResourcesOptions
+            customTags: false
+            tab: gviabcua.smallbackup::lang.settings.tabs.storage
+
+        _listing_storage:
+            type: partial
+            path: $/gviabcua/smallbackup/controllers/settings/_listing-storage.htm
+            tab: gviabcua.smallbackup::lang.settings.tabs.storage
+
+        db_custom_mapping:
+            label: gviabcua.smallbackup::lang.settings.db_custom_mapping
+            comment: gviabcua.smallbackup::lang.settings.db_custom_mapping__comment
+            type: repeater
+            prompt: gviabcua.smallbackup::lang.settings.db_custom_mapping__prompt
+            form:
+                fields:
+                    db_type:
+                        label: gviabcua.smallbackup::lang.settings.db_custom_mapping__db_type
+                        comment: gviabcua.smallbackup::lang.settings.db_custom_mapping__db_type__comment
+                        type: text
+                        span: left
+                    doctrine_type:
+                        label: gviabcua.smallbackup::lang.settings.db_custom_mapping__doctrine_type
+                        comment: gviabcua.smallbackup::lang.settings.db_custom_mapping__doctrine_type__comment
+                        type: text
+                        span: right
+            span: full
+            tab: gviabcua.smallbackup::lang.settings.tabs.settings
