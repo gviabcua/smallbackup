@@ -4,7 +4,8 @@
             <tr>
                 <th><span><?= e(trans('gviabcua.smallbackup::lang.backup.list.filename')) ?></span></th>
                 <th><span><?= e(trans('gviabcua.smallbackup::lang.backup.list.created_at')) ?></span></th>
-                <th><span>&nbsp;</span></th>
+                <th><span><?= e(trans('gviabcua.smallbackup::lang.backup.list.file_size')) ?></span></th>
+                <th><span><?= e(trans('gviabcua.smallbackup::lang.backup.control.download')) ?></span></th>
             </tr>
         </thead>
         <tbody>
@@ -13,6 +14,7 @@
                     <tr>
                         <td><?= e($file->getFilename()) ?></td>
                         <td><?= \Backend::dateTime($file->getCTime()) ?></td>
+                        <td><?= round((($file->getSize()/1024)/1024),1);  ?>Mb</td>
                         <td class="column-button nolink">
                             <a href="<?= e(\Backend::url('gviabcua/smallbackup/settings/download/' . base64_encode(str_after($file->getPathname(), base_path())))) ?>"
                                 class="btn btn-secondary btn-sm"

@@ -13,6 +13,7 @@ return [
             'storage' => 'Storage backup files',
             'filename' => 'Backup file',
             'created_at' => 'Created',
+            'file_size' => 'File Size',
         ],
         'control' => [
             'download' => 'Download',
